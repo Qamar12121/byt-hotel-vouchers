@@ -1,0 +1,1 @@
+import {build} from 'esbuild';import{mkdir,copyFile}from'node:fs/promises';await mkdir('dist',{recursive:true});for(const f of ['index.html','style.css'])await copyFile(f,'dist/'+f);await build({entryPoints:['app.js'],bundle:true,format:'esm',outfile:'dist/app.js',minify:true});console.log('Built Netlify portal in dist/');
